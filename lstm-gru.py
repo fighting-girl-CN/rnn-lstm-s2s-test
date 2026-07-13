@@ -18,4 +18,12 @@ class Gate(nn.Module):
         output = torch.sigmoid(h_h + h_x)
         return output
 
+class LSTM(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.u_gate = Gate(hidden_size= HIDDEN_SIZE, input_size= EMBEDDING_DIME)
+        self.f_gate = Gate(hidden_size= HIDDEN_SIZE, input_size= EMBEDDING_DIME)
+        self.o_gate = Gate(hidden_size= HIDDEN_SIZE, input_size= EMBEDDING_DIME)
 
+HIDDEN_SIZE = 256
+EMBEDDING_DIME = 128
